@@ -1,0 +1,20 @@
+{% extends 'recipes/base.html' %}{% load crispy_forms_tags %}
+<!---->
+
+{% block content %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Add your recipe!</legend>
+            {{ form.as_p }}
+        </fieldset>
+        <div class="form-group py-3">
+            <button class="btn btn-outline-info" type="submit">Save recipe</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <a href="{% url 'homepage' %}">Cancel now</a>
+    </div>
+</div>
+{% endblock content %}

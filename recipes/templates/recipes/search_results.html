@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+
+  <!-- Include the Font Awesome library -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <!-- Custom CSS styles for the search results page -->
+  <style>
+    /* Container styles */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Search results styles */
+    .search-results {
+      margin-bottom: 20px;
+    }
+
+    .search-results h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .search-results ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .search-results li {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    /* No results styles */
+    .no-results {
+      font-size: 18px;
+    }
+
+    /* Navigation styles */
+    .navbar {
+      background-color: #f1f1f1;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    .navbar a {
+      color: #333;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="{% url 'homepage' %}">Home</a>
+  </div>
+
+  <div class="container">
+    <ul>
+      {% for recipe in results %}
+        <li>
+          <h3>{{ recipe.name }}</h3>
+          <p>Author: {{ recipe.author }}</p>
+          <p>Ingredients: {{ recipe.ingredients }}</p>
+          <p>Instructions: {{ recipe.instructions }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>

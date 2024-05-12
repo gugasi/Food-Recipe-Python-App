@@ -1,0 +1,26 @@
+{% extends 'recipes/base.html' %}
+<!-- -->
+{% block content %}
+    <h1>Recipe # {{object.id}}</h1>
+    
+    <div class="card my-4" style="width: 18rem;">
+        {% if object.image %}
+    <img src="{{ object.image.url }}" class="card-img-top" alt="...">
+    {% endif %}
+
+        <div class="card-body">
+            <h5 class="card-title">{{ object.name }}</h5>
+            <p class="card-text">{{ object.author }}</p>
+            <p class="card-text">{{ object.updated_at|date:"F d, Y" }}</p>
+            <p class="card-text">{{ object.ingredients }}</p>
+            <p class="card-text">{{ object.instructions }}</p>
+            <p class="card-text">{{ object.image }}</p>
+        </div>
+    </div>
+    {% if object.author == user or user.is_staff %}
+    <div class="col-4">
+        <a class="btn btn-primary" href="{% url 'recipe-update' object.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'recipe-delete' object.id %}">Delete</a>
+    </div>
+{% endif %}
+{% endblock content %}
