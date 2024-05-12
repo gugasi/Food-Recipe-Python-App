@@ -22,9 +22,15 @@ This project is a food recipe website developed using Python, Django, HTML, and 
 
 ## Features
 
+- **User Registration/Login**: Users can create accounts using email, name, and password. The same email can NOT be used.
 - **Browse Recipes**: Users can browse through a variety of food recipes.
 - **Search Recipes**: Users can search for recipes using the search functionality.
 - **Share Recipes**: Users can share their own recipes on the website.
+
+## Admin Panel & SQL
+There is currently only one admin account added through the script code and when you user heads to admin page, they are asked to login using admin credentials to enter admin panel and have access to users,sql tables, recipes, and so on.
+- **Users Edit Feature**: Admin has power to edit/remove users recipes as well as delete their profiles if the name is inappropriate or remove their name as a feature to give them a chance to change their name to something more appropriate.
+
 
 ## Contributing
 
